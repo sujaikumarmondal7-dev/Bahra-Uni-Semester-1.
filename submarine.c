@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <ctype.h>
 int main(){
    float water_pressure=0.0;
    float critical_maximum_water_pressure=150.0;
@@ -30,8 +30,14 @@ int main(){
         printf("\nplease input the command\n");
         scanf(" %c",&command1);
         scanf(" %c",&command2);
-        //now i will apply condition 
-        if (command1=='X'&&command2=='Y')
+       //using a simple if .(it is odd but i will change it latter)
+       if(isdigit(command1)||isdigit(command2))
+       {
+        printf("\n[error] system malfunction:digits are not accepted as security keys");
+            printf("\n[denied]hatch remains locked\n");
+       }
+       //now i will apply condition 
+       else if (command1=='X'&&command2=='Y')
         {printf("[SUCCESS] Hatch unlocked. Welcome aboard, Captain!"); }
 else
 {printf("[DENIED] Security violation. Hatch remains locked");} 
