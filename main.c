@@ -10,10 +10,13 @@ int main()
   printf("\nbreading of chamber pressure :\n");
   scanf("%f",&chamber_pressure);
 
-  if (chamber_pressure>5000.00||chamber_pressure<900.00)  
-  //here i use || because if any of the state ment is true engine ignition is risky
- {
-  printf("\nchamber pressure is not suitable for ignition \n");
+  if (chamber_pressure<900.00)  
+  {
+  printf("\nchamber pressure is below the minimum critical limit \n");
+ printf("\nit is very risky to ignite the engine\n");
+}
+  else if(chamber_pressure>5000.00)
+  {printf("\n chamber pressure exceeds the maximum critical limit\n");
   printf("\nit is very risky to ignite the engine\n");
 }
   if ( chamber_pressure<=5000.00&&chamber_pressure>=900.00)
