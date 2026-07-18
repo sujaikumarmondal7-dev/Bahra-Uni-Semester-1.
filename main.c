@@ -1,43 +1,33 @@
 #include <stdio.h>
-
+#include <stdlib.h> 
+#include <time.h>
+#include <ctype.h>
 int main()
 {
-  //<-- start main 
-  float chamber_pressure = 0.00;
-  float critical_maximum_limit_of_pressure=5000.00;
-  float critical_minimum_limit_of_pressure=900.00;
-  //machine measuring the chamber pressure 
-  printf("\nbreading of chamber pressure :\n");
-  scanf("%f",&chamber_pressure);
+int random_number;
+char input_character;
 
-  if (chamber_pressure<900.00)  
-  {
-  printf("\nchamber pressure is below the minimum critical limit \n");
- printf("\nit is very risky to ignite the engine\n");
-}
-  else if(chamber_pressure>5000.00)
-  {printf("\n chamber pressure exceeds the maximum critical limit\n");
-  printf("\nit is very risky to ignite the engine\n");
-}
-  if ( chamber_pressure<=5000.00&&chamber_pressure>=900.00)
-  { 
-    // here i add && because both the state ment above need to be true  to ignite the engine 
-    printf("chamber pressure is in suitable range \n");
+// now we will set the condition
+    srand(time(NULL));
+    random_number=(rand() % 10)+1;
+   printf("\nplease input the input_character:\n");
+   scanf(" %c",&input_character); 
+   if( isdigit(input_character))
+   {
+    //fixed:added  the math conversion line here!
+    int input_number=input_character-'0';
+    //now compare the converted integer now 
    
-    char command1 ;
-    char command2 ;
-    printf("\nplease input the commands\n");
-    scanf(" %c",&command1);
-    scanf(" %c",&command2);
-    // now i will apply condition here 
-    if(command1=='A'&&command2=='B')
-    //here i put && operator because both the input need to correct 
-    { 
-      printf("\n[SYSTEM] ALL CONDITIONS MET. LIFTOFF!\n"); 
+    if(random_number==input_number)
+    {
+        printf("\nyou have gussed the correct input\n");}
+        else
+        {printf("\nyou gussed the wrong number\n");}
+    
     }
     else
-   {
-    printf("\n[SYSTEM] Launch aborted .check command inputs.\n");
-   }}
-   return 0;
-  }
+    {
+        printf("\ncharacters are not allowed\n");
+    }
+    return 0;
+}
